@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Domowa biblioteka</title>
+    <style>
+        table, th,  tr, td {border: 1px solid olive;}
+    </style>
+</head>
+
+<body>
+    <h2>Lista książek</h2>
+
+    <table>
+        <thead>
+            <th>Tytuł</th>
+            <th>Autor</th>
+            <th>Data wydania</th>
+            <th>Usuń</th>
+        </thead>
+        {% for book in books %}
+        <tr>
+            <td><a href="/books/{{ book.id }}">{{ book.title }}</a></td>
+            <td>{{ book.writer }}</td>
+            <td>{{ book.date }}</td>
+            <td><a href="/books/delete/{{ book.id }}">X</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div>
+        <h2><a href="/books/new/"> Dodaj nową książkę: </a></h2>
+
+    </div>
+</body>
+
+</html>
